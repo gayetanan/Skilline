@@ -8,30 +8,58 @@ import { useRef } from "react";
 
 function Header() {
   const navContent = useRef(null);
-  const [navDetails, setNavDetails] = useState({
-    navHeight: 0,
-    open: true,
-  });
+  const header = useRef(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const [windowWidth, setWindowWith] = useState(window.innerWidth);
+  const [navDetails, setNavDetails] = useState({ navHeight: 0, open: false });
+
+  const evaluteHeight = () => {
+    return navContent.current.getBoundingClientRect().height;
+  };
+  const evaluateHeaderHeight = () => {
+    return header.current.getBoundingClientRect().height;
+  };
   useEffect(() => {
-    const navContentHeight = navContent.current.getBoundingClientRect().height;
-    setNavDetails({ ...navDetails, navHeight: navContentHeight });
+    const height = evaluateHeaderHeight();
+    setHeaderHeight(height);
   }, []);
 
+  useEffect(() => {
+    const navHeight = evaluteHeight();
+    const headerHeight = evaluateHeaderHeight();
+    const xx = () => {
+      setWindowWith(window.innerWidth);
+    };
+
+    window.addEventListener("resize", xx);
+    setNavDetails({ ...navDetails, navHeight });
+    setHeaderHeight(headerHeight);
+
+    return () => window.removeEventListener("resize", xx);
+  }, [windowWidth]);
+
   function navTrigger() {
-    setNavDetails({ ...navDetails, open: !navDetails.open });
+    console.log(headerHeight);
+    setNavDetails({
+      ...navDetails,
+      open: !navDetails.open,
+    });
   }
   return (
-    <header className="py-3 bg-orange-100">
+    <header className="py-3 bg-orange-100" ref={header}>
       <Container>
         <div className="flex items-center justify-between">
           <div className="w-28">
             <img src={logo} alt="Skilline logo" />
           </div>
           <div
-            className={`absolute xl:static top-[100px] left-0 right-0 bg-red-300 xl:bg-transparent overflow-hidden transition-all
+            className={`absolute xl:static left-0 right-0 bg-red-300 xl:bg-transparent overflow-hidden transition-all
              `}
             style={{
-              height: navDetails.open ? `${navDetails.navHeight}px` : "0px",
+              height: navDetails.open
+                ? `${navDetails.navHeight}px`
+                : `${windowWidth > 1280 ? "max-content" : "0"}`,
+              top: `${headerHeight}px`,
             }}
           >
             <div
@@ -59,8 +87,10 @@ function Header() {
               </div>
             </div>
           </div>
-          <div className="xl:hidden">
-            <button onClick={navTrigger}>X</button>
+          <div className="xl:hidden ">
+            <button className="bg-black text-white p-4" onClick={navTrigger}>
+              X
+            </button>
           </div>
         </div>
       </Container>
