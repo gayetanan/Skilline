@@ -13,37 +13,28 @@ function Header() {
   const [windowWidth, setWindowWith] = useState(window.innerWidth);
   const [navDetails, setNavDetails] = useState({ navHeight: 0, open: false });
 
-  const evaluteHeight = () => {
-    return navContent.current.getBoundingClientRect().height;
+  // handle element height
+  const evaluateHeight = (ref) => {
+    return ref.current.getBoundingClientRect().height;
   };
-  const evaluateHeaderHeight = () => {
-    return header.current.getBoundingClientRect().height;
-  };
-  useEffect(() => {
-    const height = evaluateHeaderHeight();
-    setHeaderHeight(height);
-  }, []);
 
   useEffect(() => {
-    const navHeight = evaluteHeight();
-    const headerHeight = evaluateHeaderHeight();
-    const xx = () => {
+    const navHeight = evaluateHeight(navContent);
+    const headerHeight = evaluateHeight(header);
+
+    const handleResize = () => {
       setWindowWith(window.innerWidth);
     };
 
-    window.addEventListener("resize", xx);
+    window.addEventListener("resize", handleResize);
     setNavDetails({ ...navDetails, navHeight });
     setHeaderHeight(headerHeight);
 
-    return () => window.removeEventListener("resize", xx);
+    return () => window.removeEventListener("resize", handleResize);
   }, [windowWidth]);
 
   function navTrigger() {
-    console.log(headerHeight);
-    setNavDetails({
-      ...navDetails,
-      open: !navDetails.open,
-    });
+    setNavDetails({ ...navDetails, open: !navDetails.open });
   }
   return (
     <header className="py-3 bg-orange-100" ref={header}>
@@ -53,7 +44,7 @@ function Header() {
             <img src={logo} alt="Skilline logo" />
           </div>
           <div
-            className={`absolute xl:static left-0 right-0 bg-red-300 xl:bg-transparent overflow-hidden transition-all
+            className={`absolute xl:static left-0 right-0 bg-orange-50 xl:bg-transparent overflow-hidden transition-all
              `}
             style={{
               height: navDetails.open

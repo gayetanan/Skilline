@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 * {
-    @apply font-poppins lg:text-lg
+    @apply font-poppins text-base;
+}
+
+h1 span {
+    font-size: inherit;
 }

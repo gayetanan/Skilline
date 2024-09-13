@@ -4,6 +4,27 @@ function App() {
   return (
     <>
       <Header />
+      <section className="bg-orange-100 pt-20">
+        <Container>
+          <div className="xl:flex xl:items-center gap-x-16">
+            <div>
+              <h1 className="text-4xl lg:text-5xl leading-snug font-bold text-primary">
+                <span className="text-accent">Studying</span> Online is now much
+                easier
+              </h1>
+              <p className="text-leading lg:text-lg xl:text-xl">
+                Skilline is an interesting platform that will teach you in more
+                an interactive way.
+              </p>
+            </div>
+            <div>
+              <div className="xl:max-w-3xl bg-red-400 mx-auto">
+                <img className="w-full" src="/hero-girl-img.png" alt="image" />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }
