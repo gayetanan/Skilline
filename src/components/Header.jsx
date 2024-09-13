@@ -39,7 +39,7 @@ function Header() {
   return (
     <header className="py-3 bg-orange-100" ref={header}>
       <Container>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between ">
           <div className="w-28">
             <img src={logo} alt="Skilline logo" />
           </div>
@@ -55,7 +55,7 @@ function Header() {
           >
             <div
               ref={navContent}
-              className="container py-4 xl:max-w-max xl:flex items-center gap-8"
+              className="container py-4 xl:p-0 xl:max-w-max xl:flex items-center gap-8 "
             >
               <ul className="flex flex-col xl:flex-row gap-4 xl:gap-8">
                 <li>
