@@ -8,7 +8,7 @@ function App() {
         <Container>
           <div className="text-center xl:text-left xl:flex xl:items-center gap-x-48 justify-between ">
             <div className="mx-auto w-full max-w-2xl">
-              <h1 className="text-4xl lg:text-5xl leading-normal lg:leading-normal font-bold text-primary">
+              <h1 className="text-4xl md:text-[56px] lg:text-5xl leading-normal lg:leading-normal font-bold text-primary">
                 <span className="text-accent">Studying</span> Online is now much
                 easier
               </h1>
