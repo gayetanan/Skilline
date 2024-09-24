@@ -37,7 +37,7 @@ function Header() {
     setNavDetails({ ...navDetails, open: !navDetails.open });
   }
   return (
-    <header className="py-3 bg-orange-100" ref={header}>
+    <header className="py-3 bg-orange-100 relative z-10" ref={header}>
       <Container>
         <div className="flex items-center justify-between ">
           <div className="w-28">

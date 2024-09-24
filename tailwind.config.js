@@ -16,6 +16,7 @@ export default {
         primary: "#2F327D",
         leading: "#252641",
         accent: "#F48C06",
+        pink: "#D8587E",
       },
     },
   },

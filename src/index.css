@@ -10,7 +10,30 @@ h1 span {
     font-size: inherit;
 }
 
-.skmnf {
-    /* border-bottom-left-radius: 20%; */
-    /* transform:; */
+
+.morphism {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+}
+
+.sk {
+    position: relative;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    /* height: 100vh; */
+}
+
+.sk svg {
+    position: absolute;
+    display: block;
+    width: calc(300% + 3px);
+    height: 120px;
+    bottom: 0;
+    z-index: 1;
+}
+
+.sk .shape-fill {
+    fill: #FFFFFF;
 }
