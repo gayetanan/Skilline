@@ -1,9 +1,11 @@
 import Button from "./components/Button";
+import Card, { cardDetails } from "./components/Card";
 import CardContent from "./components/CardContent";
 import CardMorphism from "./components/CardMorphism";
 import Container from "./components/Container";
 import Header from "./components/Header";
 import TrustCompanyLogo from "./components/TrustCompanyLogo";
+
 function App() {
   return (
     <>
@@ -106,6 +108,30 @@ function App() {
               <TrustCompanyLogo src={"./amazon.svg"} />
               <TrustCompanyLogo src={"./facebook.svg"} />
               <TrustCompanyLogo src={"./grab-logo.svg"} />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container>
+          <div>
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="heading-2">
+                <span className="text-primary">All-In-One </span>
+                <span className="text-accent">Cloud Software.</span>
+              </h2>
+            </div>
+            <div className="mt-10">
+              <p className="text-leading-300 text-center text-lg xl:text-xl leading-normal max-w-xl xl:max-w-2xl mx-auto">
+                Skilline is one powerful online software suite that combines all
+                the tools needed to run a successful school or office.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-12 gap-y-32 mt-32">
+              <Card {...cardDetails[0]} />
+              <Card {...cardDetails[1]} />
+              <Card {...cardDetails[2]} />
             </div>
           </div>
         </Container>
