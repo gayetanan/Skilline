@@ -3,6 +3,7 @@ import CardContent from "./components/CardContent";
 import CardMorphism from "./components/CardMorphism";
 import Container from "./components/Container";
 import Header from "./components/Header";
+import TrustCompanyLogo from "./components/TrustCompanyLogo";
 function App() {
   return (
     <>
@@ -94,27 +95,17 @@ function App() {
       <section className="py-20">
         <Container>
           <div>
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-2xl mx-auto text-center">
               <span className="text-leading text-3xl mx-auto inline-block">
                 Trusted by 5,000+ Companies Worldwide
               </span>
             </div>
-            <div className="flex justify-between gap-4 items-center mt-10 max-w-5xl mx-auto">
-              <div>
-                <img src="./google.svg" alt="" />
-              </div>
-              <div>
-                <img src="./airbnb.svg" alt="" />
-              </div>
-              <div>
-                <img src="./amazon.svg" alt="" />
-              </div>
-              <div>
-                <img src="./facebook.svg" alt="" />
-              </div>
-              <div>
-                <img src="./grab-logo.svg" alt="" />
-              </div>
+            <div className="flex flex-wrap gap-8 items-center justify-center mt-10 max-w-full md:max-w-5xl mx-auto">
+              <TrustCompanyLogo src={"./google.svg"} />
+              <TrustCompanyLogo src={"./airbnb.svg"} />
+              <TrustCompanyLogo src={"./amazon.svg"} />
+              <TrustCompanyLogo src={"./facebook.svg"} />
+              <TrustCompanyLogo src={"./grab-logo.svg"} />
             </div>
           </div>
         </Container>
