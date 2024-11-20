@@ -8,10 +8,11 @@ import TrustCompanyLogo from "./components/TrustCompanyLogo";
 import Card1 from "./components/Card-1";
 import { motion } from "motion/react";
 import { Video } from "reactjs-media";
-import { FaPlay, FaPause } from "react-icons/fa6";
+import blogImg from "./assets/blog-1.jpg";
 
 import imgx from "./assets/image-1x.png";
 import { useRef, useState } from "react";
+import Blog from "./components/Blog";
 
 function App() {
   const [isPlaying, setIsplaying] = useState(false);
@@ -199,8 +200,8 @@ function App() {
 
       <section className="py-20">
         <Container>
-          <div className="grid lg:grid-cols-2 lg:gap-x-20 gap-y-20 items-start">
-            <div className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
+          <div className="grid xl:grid-cols-2 lg:gap-x-20 gap-y-20 items-start">
+            <div className="max-w-2xl text-center xl:text-left mx-auto xl:mx-0">
               <h2 className="heading-2 relative xxx-x">
                 <span className="text-primary md:leading-[3.5rem] relative z-10">
                   Everything you can do in a physical classroom,{" "}
@@ -231,6 +232,52 @@ function App() {
               </div>
               <span className="sqr-1 w-20 h-20 bg-secondary block absolute z-0 -top-4 -left-2 md:-left-4 rounded-lg"></span>
               <span className="sqr-1 w-28 h-28 bg-orange-300 block absolute z-0 -bottom-4 -right-2 md:right-4 rounded-lg"></span>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container>
+          <div>
+            <div className="max-w-2xl text-center mx-auto">
+              <h2 className="heading-2 text-primary md:leading-[3.5rem] relative z-10">
+                Lastest News and Resources
+              </h2>
+              <p className="my-5 text-leading-300 text-lg xl:text-xl leading-normal max-w-xl xl:max-w-4xl ">
+                See the developments that have occurred to Skillines in the
+                world.
+              </p>
+            </div>
+
+            <div className="grid xl:grid-cols-2 items-start gap-x-16 mt-20">
+              <div>
+                <div>
+                  <img src={blogImg} alt="" />
+                </div>
+                <div className="p-4">
+                  <span className="bg-orange-200 px-6 py-1 rounded-full inline-block my-4">
+                    NEW
+                  </span>
+                  <h4 className="font-medium text-2xl text-neutral-900">
+                    Class adds $30 million to its balance sheet for a
+                    Zoom-friendly edtech solution.
+                  </h4>
+                  <p className="text-leading-300 lg:text-lg my-4">
+                    Class, launched less than a year ago by Blackboard
+                    co-founder Michael Chasen, integrates exclusively...
+                  </p>
+                  <a href="" className="text-leading-300 underline">
+                    Read more
+                  </a>
+                </div>
+              </div>
+
+              <div className="">
+                <Blog img={blogImg} />
+                <Blog img={blogImg} />
+                <Blog img={blogImg} />
+              </div>
             </div>
           </div>
         </Container>
