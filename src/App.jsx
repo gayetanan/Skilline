@@ -6,10 +6,27 @@ import Container from "./components/Container";
 import Header from "./components/Header";
 import TrustCompanyLogo from "./components/TrustCompanyLogo";
 import Card1 from "./components/Card-1";
+import { motion } from "motion/react";
+import { Video } from "reactjs-media";
+import { FaPlay, FaPause } from "react-icons/fa6";
 
 import imgx from "./assets/image-1x.png";
+import { useRef, useState } from "react";
 
 function App() {
+  const [isPlaying, setIsplaying] = useState(false);
+  const videoPlayer = useRef(null);
+
+  const togglePlayer = () => {
+    if (videoPlayer.current) {
+      isPlaying ? videoPlayer.current.pause() : videoPlayer.current.play();
+      setIsplaying((prev) => !prev);
+    }
+  };
+  const card = {
+    initial: { rotate: 0 },
+    hover: { rotate: 360 },
+  };
   return (
     <>
       <Header />
@@ -132,9 +149,16 @@ function App() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-12 gap-y-32 mt-32">
-              <Card {...cardDetails[0]} />
-              <Card {...cardDetails[1]} />
-              <Card {...cardDetails[2]} />
+              <motion.div whileHover="hover" initial="initial">
+                <Card {...cardDetails[0]}></Card>
+              </motion.div>
+              <motion.div whileHover="hover" initial="initial">
+                <Card {...cardDetails[1]} />
+              </motion.div>
+
+              <motion.div whileHover="hover" initial="initial">
+                <Card {...cardDetails[2]} />
+              </motion.div>
             </div>
           </div>
         </Container>
@@ -175,7 +199,7 @@ function App() {
 
       <section className="py-20">
         <Container>
-          <div>
+          <div className="grid lg:grid-cols-2 lg:gap-x-20 gap-y-20 items-start">
             <div className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
               <h2 className="heading-2 relative xxx-x">
                 <span className="text-primary md:leading-[3.5rem] relative z-10">
@@ -194,7 +218,27 @@ function App() {
                 Learn more
               </button>
             </div>
-            <div className="mt-10"></div>
+            <div className="overflow-hidden rounded-3xl relative">
+              <div className="b---play absolute z-10">
+                <button
+                  onClick={togglePlayer}
+                  className="bg-white p-4 inline-flex items-center rounded-full"
+                >
+                  {isPlaying ? (
+                    <FaPause className="text-secondary" />
+                  ) : (
+                    <FaPlay className="text-secondary" />
+                  )}
+                </button>
+              </div>
+              <Video
+                ref={videoPlayer}
+                src="/video.mp4" // Your video source
+                controls={false} // Show video controls
+                height={"100%"} // Video player height
+                width={"100%"} // Video player width
+              />
+            </div>
           </div>
         </Container>
       </section>

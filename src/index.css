@@ -52,7 +52,7 @@ h1 span {
   }
 }
 
-.card {
+.card:hover {
   box-shadow: 0px 10px 60px rgba(38, 45, 118, 0.08);
 }
 
@@ -75,4 +75,10 @@ img {
   height: 80px;
   left: -15px;
   top: -20px;
+}
+.b---play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

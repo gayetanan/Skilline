@@ -1,8 +1,14 @@
 import { FaNoteSticky, FaUsers, FaCalendar } from "react-icons/fa6";
+import { motion } from "motion/react";
 function Card({ icon, description, heading }) {
+  const item = {
+    hover: { rotate: 360 },
+  };
   return (
-    <div className="card shadow-lg p-14 text-center rounded-3xl pt-20 md:pt-32 relative bg-white">
-      <div className={`icon absolute`}>{icon}</div>
+    <div className="card p-14 text-center rounded-3xl pt-20 md:pt-32 relative bg-white">
+      <div className={`icon absolute`}>
+        <motion.div variants={item}>{icon}</motion.div>
+      </div>
       <h3 className="heading-3">{heading}</h3>
       <p className="text-lg text-leading-300">{description}</p>
     </div>
