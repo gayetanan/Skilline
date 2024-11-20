@@ -1,4 +1,4 @@
-import { FaUsers } from "react-icons/fa6";
+import { FaNoteSticky, FaUsers, FaCalendar } from "react-icons/fa6";
 function Card({ icon, description, heading }) {
   return (
     <div className="card shadow-lg p-14 text-center rounded-3xl pt-20 md:pt-32 relative bg-white">
@@ -13,10 +13,9 @@ const cardDetails = [
   {
     icon: (
       <div className="h-24 w-24 rounded-full bg-purple inline-flex items-center justify-center">
-        <FaUsers className="text-5xl text-white" />,
+        <FaNoteSticky className="text-5xl text-white" />,
       </div>
     ),
-
     heading: "Online Billing, Invoicing, & Contracts",
     description:
       "Simple and secure control of your organization’s financial and legal transactions. Send customized invoices and contracts",
@@ -24,7 +23,7 @@ const cardDetails = [
   {
     icon: (
       <div className="h-24 w-24 rounded-full bg-accent inline-flex items-center justify-center">
-        <FaUsers className="text-5xl text-white" />,
+        <FaCalendar className="text-5xl text-white" />,
       </div>
     ),
     heading: "Easy Scheduling & Attendance Tracking",

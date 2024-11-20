@@ -5,6 +5,9 @@ import CardMorphism from "./components/CardMorphism";
 import Container from "./components/Container";
 import Header from "./components/Header";
 import TrustCompanyLogo from "./components/TrustCompanyLogo";
+import Card1 from "./components/Card-1";
+
+import imgx from "./assets/image-1x.png";
 
 function App() {
   return (
@@ -133,6 +136,65 @@ function App() {
               <Card {...cardDetails[1]} />
               <Card {...cardDetails[2]} />
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container>
+          <div>
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="heading-2">
+                <span className="text-primary">What is </span>
+                <span className="text-accent">Skilline?</span>
+              </h2>
+            </div>
+            <div className="mt-10">
+              <p className="text-leading-300 text-center text-lg xl:text-xl leading-normal max-w-xl xl:max-w-4xl mx-auto">
+                Skilline is a platform that allows educators to create online
+                classes whereby they can store the course materials online;
+                manage assignments, quizzes and exams; monitor due dates; grade
+                results and provide students with feedback all in one place.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-32">
+              <Card1
+                title={"For instructors"}
+                buttonText={"Start a class today"}
+                imgSRC={imgx}
+              />
+              <Card1
+                title={"For Students"}
+                buttonText={"Enter access code"}
+                imgSRC={imgx}
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container>
+          <div>
+            <div className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
+              <h2 className="heading-2 relative xxx-x">
+                <span className="text-primary md:leading-[3.5rem] relative z-10">
+                  Everything you can do in a physical classroom,{" "}
+                </span>
+                <span className="text-accent md:leading-[3.5rem]">
+                  you can do with Skilline.
+                </span>
+              </h2>
+              <p className="my-10 text-leading-300 text-lg xl:text-xl leading-normal max-w-xl xl:max-w-4xl ">
+                Skilline’s school management software helps traditional and
+                online schools manage scheduling, attendance, payments and
+                virtual classrooms all in one secure cloud-based system.
+              </p>
+              <button className="text-white bg-secondary px-4 py-3 md:text-lg rounded-full">
+                Learn more
+              </button>
+            </div>
+            <div className="mt-10"></div>
           </div>
         </Container>
       </section>
