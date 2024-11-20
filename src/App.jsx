@@ -218,26 +218,19 @@ function App() {
                 Learn more
               </button>
             </div>
-            <div className="overflow-hidden rounded-3xl relative">
-              <div className="b---play absolute z-10">
-                <button
-                  onClick={togglePlayer}
-                  className="bg-white p-4 inline-flex items-center rounded-full"
-                >
-                  {isPlaying ? (
-                    <FaPause className="text-secondary" />
-                  ) : (
-                    <FaPlay className="text-secondary" />
-                  )}
-                </button>
+            <div className="relative">
+              <div className="overflow-hidden rounded-3xl relative z-10">
+                <Video
+                  ref={videoPlayer}
+                  src="/video.mp4" // Your video source
+                  controls={true} // Show video controls
+                  height={"100%"} // Video player height
+                  width={"100%"} // Video player width
+                  autoplay={true}
+                />
               </div>
-              <Video
-                ref={videoPlayer}
-                src="/video.mp4" // Your video source
-                controls={false} // Show video controls
-                height={"100%"} // Video player height
-                width={"100%"} // Video player width
-              />
+              <span className="sqr-1 w-20 h-20 bg-secondary block absolute z-0 -top-4 -left-2 md:-left-4 rounded-lg"></span>
+              <span className="sqr-1 w-28 h-28 bg-orange-300 block absolute z-0 -bottom-4 -right-2 md:right-4 rounded-lg"></span>
             </div>
           </div>
         </Container>
